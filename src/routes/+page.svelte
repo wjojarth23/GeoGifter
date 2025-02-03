@@ -59,7 +59,7 @@
   let userMarker;
   let pinMarker;
   let distance = 0;
-  const pinCoords = [37.386051, -122.083855];
+  const pinCoords = [37.4488906, -122.1278108];
 
   function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of Earth in km
