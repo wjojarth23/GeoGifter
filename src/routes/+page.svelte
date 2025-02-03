@@ -171,157 +171,143 @@ L.Icon.Default.mergeOptions({
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* Body and overall page styles */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* Container layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full screen height */
+  overflow: hidden; /* Prevent overflow from affecting the overall layout */
+}
 
-  body {
-    font-family: 'Inter', sans-serif;
-    color: #333;
-    background: #ffffff;
-  }
+/* Map section styles */
+.map {
+  height: 60vh; /* Map takes up 60% of the screen height */
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Space between map and gifts */
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding: 20px;
-    background: #ffffff;
-  }
+#map {
+  height: 100%; /* Full height of the map container */
+}
 
-  .gifts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
-    flex: 1;
-  }
+/* Distance and cooldown overlays */
+.distance {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .gift {
-    background-color: #FCFCFC;
-    border: 0.5px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 1em;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    aspect-ratio: 1 / 1;
-    text-align: center;
-  }
+.cooldown {
+  position: absolute;
+  bottom: 10px;
+  left: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .gift.unlocked {
-    background-color: #FCFCFC;
-    border-color: #e0e0e0;
-  }
+/* Gifts section styles */
+.gifts {
+  flex: 1; /* Takes up the remaining space */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  overflow-y: auto; /* Allows scrolling if there are more gifts than can fit */
+  padding-bottom: 20px; /* Add some padding to the bottom for scroll */
+}
 
-  .gift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
+/* Gift item styles */
+.gift {
+  background-color: #FCFCFC;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 1 / 1;
+  text-align: center;
+}
 
-  .gift .emoji {
-    font-size: 4em;
-    margin-bottom: 10px;
-  }
+.gift.unlocked {
+  background-color: #FCFCFC;
+  border-color: #e0e0e0;
+}
 
-  .gift .name {
-    font-size: 0.9em;
-    margin-bottom: 5px;
-  }
+.gift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
-  .gift .cooldown {
-    font-size: 0.8em;
-    color: #666;
-  }
+.gift .emoji {
+  font-size: 4em;
+  margin-bottom: 10px;
+}
 
-  .map {
-    flex: 2;
-    height: 100%;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
-    z-index: 1;
-  }
+.gift .name {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
 
-  #map {
-    height: 100%;
-  }
+.gift .cooldown {
+  font-size: 0.8em;
+  color: #666;
+}
 
-  .distance {
-    position: absolute;
-    top: 10px;
-    left: 50px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+/* Reset button styles */
+.reset-button {
+  background-color: #FF4D4D;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 20px;
+  width: 100%;
+}
 
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    z-index: 100;
-  }
+.reset-button:hover {
+  background-color: #FF2A2A;
+}
 
-  .modal img {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
-    z-index: 100;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .modal video,
-  .modal audio {
-    width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
-    z-index: 100;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Reset Button */
-  .reset-button {
-    background-color: #FF4D4D;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2em;
-    font-weight: 600;
-    margin-top: 20px;
-    width: 100%;
-  }
-
-  .reset-button:hover {
-    background-color: #FF2A2A;
-  }
 </style>
 
 <div class="container">
