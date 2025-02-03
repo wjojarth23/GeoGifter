@@ -239,9 +239,12 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 0px;
+  padding-top:30px;
   overflow-y: auto; /* Allows scrolling if there are more gifts than can fit */
   padding-bottom: 20px; /* Add some padding to the bottom for scroll */
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20px, rgba(0, 0, 0, 1) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20px, rgba(0, 0, 0, 1) 100%);
 }
 
 /* Gift item styles */
@@ -268,11 +271,6 @@ body {
 .gift.unlocked {
   background-color: #FCFCFC;
   border-color: #e0e0e0;
-}
-
-.gift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .gift .emoji {
@@ -359,10 +357,10 @@ body {
     {/each}
   </div>
 
-  <!-- Reset Button -->
-  <button class="reset-button" on:click={resetGiftStatus}>
+  <!-- Reset Button <button class="reset-button" on:click={resetGiftStatus}>
     Reset Gifts
-  </button>
+  </button>-->
+  
 </div>
 
 {#if selectedGift}
