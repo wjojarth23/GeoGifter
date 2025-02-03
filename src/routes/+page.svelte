@@ -59,7 +59,7 @@
   let userMarker;
   let pinMarker;
   let distance = 0;
-  const pinCoords = [37.4488906, -122.1278108];
+  const pinCoords = [37.4494469, -122.1295963];
 
   function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of Earth in km
@@ -112,7 +112,7 @@
 
   function updateDistance(userCoords) {
     distance = calculateDistance(userCoords[0], userCoords[1], pinCoords[0], pinCoords[1]).toFixed(2);
-    if (distance <= .1 && remainingCooldown === 0) {
+    if (distance <= .05 && remainingCooldown === 0) {
       unlockGift();
     }
   }
