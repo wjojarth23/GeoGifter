@@ -112,7 +112,7 @@
 
   function updateDistance(userCoords) {
     distance = calculateDistance(userCoords[0], userCoords[1], pinCoords[0], pinCoords[1]).toFixed(2);
-    if (distance <= .05 && remainingCooldown === 0) {
+    if (distance <= 20 && remainingCooldown === 0) {
       unlockGift();
     }
   }
@@ -307,6 +307,29 @@ body {
 .reset-button:hover {
   background-color: #FF2A2A;
 }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+
+  .modal img,
+  .modal video,
+  .modal audio {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
 
 </style>
 
@@ -318,7 +341,7 @@ body {
       Distance to Pin: {distance} km
     </div>
     {#if lastUnlockTime && remainingCooldown > 0}
-      <div class="cooldown">
+      <div class="cooldown" style="left:10px">
         Next gift unlocks in: {formatCooldown()}
       </div>
     {/if}
