@@ -4,14 +4,30 @@
   
 
   const mediaFiles = [
-    'photo1.webp',
-    'photo2.jpg',
-    'photo3.png',
-    'video1.mp4',
-    'audio1.mp3',
-    'video2.webm',
-    'photo4.gif'
-  ];
+    'Gerhard1.jpeg',
+'AmyUndWilliamWashburn.png',
+'WilliamChorAllFleshIsGrass.mp3',
+'GerhardUndJimmy.jpeg',
+'GerhardUndFranziska1.jpeg',
+'WilliamChorWalkAMile.mp3',
+'GerhardUndBernhard2.jpeg',
+'AmyMitBrot.png',
+'WilliamChorTambur.mp3',
+'Motorrad.jpeg',
+'FranziskaHochzeit.jpeg',
+'WilliamChorUpTheLadder.mp3',
+'Angeln.jpeg',
+'AmyUndWilliamKuh.png',
+'William2.png',
+'WilliamUndAmyChorConcert.png',
+'WilliamChorChildhoodChristmas.mp3',
+'GerhardUndBernhard1.jpeg',
+'WilliamUndAmy1.png',
+'WilliamChorWhatAWonderfulWorld.mp3',
+'ChristineAmyWilliamGlace.png',
+'RegulaUndGerhard.jpeg',
+'AmyUndWilliamWashburn.png',
+'WilliamChorTwelveDays.mp3'  ];
 
   let gifts = mediaFiles.map(file => {
     const extension = file.split('.').pop().toLowerCase();
@@ -52,14 +68,14 @@
   }
 
   let lastUnlockTime = null;
-  const cooldownDuration = 0.5 * 60 * 1000;
+  const cooldownDuration = 12*60* 60 * 1000;
   let remainingCooldown = 0;
 
   let map;
   let userMarker;
   let pinMarker;
   let distance = 0;
-  const pinCoords = [37.4494469, -122.1295963];
+  const pinCoords = [47.306035, 8.551307];
 
   function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of Earth in km
@@ -112,7 +128,7 @@
 
   function updateDistance(userCoords) {
     distance = calculateDistance(userCoords[0], userCoords[1], pinCoords[0], pinCoords[1]).toFixed(2);
-    if (distance <= 20 && remainingCooldown === 0) {
+    if (distance <= .05 && remainingCooldown === 0) {
       unlockGift();
     }
   }
