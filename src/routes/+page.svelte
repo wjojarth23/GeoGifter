@@ -27,7 +27,43 @@
 'ChristineAmyWilliamGlace.png',
 'RegulaUndGerhard.jpeg',
 'AmyUndWilliamWashburn.png',
-'WilliamChorTwelveDays.mp3'  ];
+'WilliamChorTwelveDays.mp3',
+'photo1.png',
+'photo2.png',
+'song1.mp3',
+'photo3.png',
+'photo4.png',
+'photo5.png',
+'song2.mp3',
+'photo6.png',
+'photo7.png',
+'photo8.png',
+'photo9.png',
+'photo10.png',
+'song3.mp3',
+'photo11.png',
+'photo12.png',
+'photo13.png',
+'photo14.png',
+'photo15.png',
+'photo16.png',
+'photo17.png',
+'photo18.png',
+'video1.mp4',
+'photo19.png',
+'photo20.png',
+'photo28.png',
+'photo29.png',
+'photo30.png',
+'song4.mp3',
+'photo21.png',
+'photo22.png',
+'photo23.png',
+'photo24.png',
+'photo25.png',
+'photo26.png',
+'photo27.png',
+'video2.mp4'  ];
 
   let gifts = mediaFiles.map(file => {
     const extension = file.split('.').pop().toLowerCase();
@@ -128,7 +164,7 @@
 
   function updateDistance(userCoords) {
     distance = calculateDistance(userCoords[0], userCoords[1], pinCoords[0], pinCoords[1]).toFixed(2);
-    if (distance <= .5s && remainingCooldown === 0) {
+    if (distance <= .55 && remainingCooldown === 0) {
       unlockGift();
     }
   }
