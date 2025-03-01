@@ -69,7 +69,7 @@
     const extension = file.split('.').pop().toLowerCase();
     let type = '';
 
-    if (['jpg', 'png', 'gif', 'webp'].includes(extension)) {
+    if (['jpeg', 'png', 'gif', 'webp'].includes(extension)) {
       type = 'image';
     } else if (['mp4', 'webm'].includes(extension)) {
       type = 'video';
@@ -104,7 +104,7 @@
   }
 
   let lastUnlockTime = null;
-  const cooldownDuration = .1* 60 * 1000;
+  const cooldownDuration = 12*60*  60 * 1000;
   let remainingCooldown = 0;
 
   let map;
@@ -164,7 +164,7 @@
 
   function updateDistance(userCoords) {
     distance = calculateDistance(userCoords[0], userCoords[1], pinCoords[0], pinCoords[1]).toFixed(2);
-    if (distance <= .55 && remainingCooldown === 0) {
+    if (distance <= .02 && remainingCooldown === 0) {
       unlockGift();
     }
   }
@@ -331,7 +331,7 @@ body {
 }
 
 .gift .name {
-  font-size: 0.9em;
+  font-size: 0.6em;
   margin-bottom: 5px;
 }
 
