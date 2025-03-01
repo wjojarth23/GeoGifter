@@ -68,7 +68,7 @@
   }
 
   let lastUnlockTime = null;
-  const cooldownDuration = 12*60* 60 * 1000;
+  const cooldownDuration = .1* 60 * 1000;
   let remainingCooldown = 0;
 
   let map;
@@ -128,7 +128,7 @@
 
   function updateDistance(userCoords) {
     distance = calculateDistance(userCoords[0], userCoords[1], pinCoords[0], pinCoords[1]).toFixed(2);
-    if (distance <= .05 && remainingCooldown === 0) {
+    if (distance <= .5s && remainingCooldown === 0) {
       unlockGift();
     }
   }
