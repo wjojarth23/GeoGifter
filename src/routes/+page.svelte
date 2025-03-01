@@ -4,28 +4,28 @@
   
 
   const mediaFiles = [
-    'Gerhard1.jpeg',
+    'Gerhard1.png',
 'AmyUndWilliamWashburn.png',
 'WilliamChorAllFleshIsGrass.mp3',
-'GerhardUndJimmy.jpeg',
-'GerhardUndFranziska1.jpeg',
+'GerhardUndJimmy.png',
+'GerhardUndFranziska1.png',
 'WilliamChorWalkAMile.mp3',
-'GerhardUndBernhard2.jpeg',
+'GerhardUndBernhard2.png',
 'AmyMitBrot.png',
 'WilliamChorTambur.mp3',
-'Motorrad.jpeg',
-'FranziskaHochzeit.jpeg',
+'Motorrad.png',
+'FranziskaHochzeit.png',
 'WilliamChorUpTheLadder.mp3',
-'Angeln.jpeg',
+'Angeln.png',
 'AmyUndWilliamKuh.png',
 'William2.png',
 'WilliamUndAmyChorConcert.png',
 'WilliamChorChildhoodChristmas.mp3',
-'GerhardUndBernhard1.jpeg',
+'GerhardUndBernhard1.png',
 'WilliamUndAmy1.png',
 'WilliamChorWhatAWonderfulWorld.mp3',
 'ChristineAmyWilliamGlace.png',
-'RegulaUndGerhard.jpeg',
+'RegulaUndGerhard.png',
 'AmyUndWilliamWashburn.png',
 'WilliamChorTwelveDays.mp3',
 'photo1.png',
@@ -69,7 +69,7 @@
     const extension = file.split('.').pop().toLowerCase();
     let type = '';
 
-    if (['jpeg', 'png', 'gif', 'webp'].includes(extension)) {
+    if (['png', 'gif', 'webp'].includes(extension)) {
       type = 'image';
     } else if (['mp4', 'webm'].includes(extension)) {
       type = 'video';
